@@ -6,14 +6,35 @@ const burger = require("../models/burger.js");
 // Create all our routes 
 router.get("/", (req, res) => {
     burger.all((data) => {
-      var hbsObject = {
+      const hbsObject = {
         burger: data
       };
       console.log(hbsObject);
       res.render("index", hbsObject);
     });
   });
+
+router.post("/", (req, res) => {
+    burger.create([
+      "burger_name", "devoured"
+    ], [
+      req.body.burgerName, 0
+    ], () => {
+      res.redirect("/");
+    });
+  });
+
+router.put("/:id", (req, res) => {
+    const condition = "id = " + req.params.id;
   
+    console.log("condition", condition);
+  
+    burger.update({
+      devoured: req.body.devour
+    }, condition, () => {
+      res.redirect("/");
+    });
+  });
 
 
 // Export routes for server.js to use.
