@@ -47,7 +47,7 @@ const orm = {
     },
 
     create(table, cols, vals, cb) {
-        let queryString = `INSERT INTO ${table}`;
+        const queryString = `INSERT INTO ${table}`;
     
         queryString += ' (';
         queryString += cols.toString();
@@ -68,8 +68,8 @@ const orm = {
       },
 
 // An example of objColVals 
-    update: function(table, objColVals, condition, cb) {
-        const queryString = "UPDATE " + table;
+    update(table, objColVals, condition, cb) {
+        let queryString = "UPDATE " + table;
 
         queryString += " SET ";
         queryString += objToSql(objColVals);
@@ -83,7 +83,7 @@ const orm = {
             }
             cb(result);
             });
-    },
+    }
 };
 
 // Export the orm object for the model.
