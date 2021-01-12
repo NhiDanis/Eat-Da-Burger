@@ -17,6 +17,10 @@ h1 {
     padding-top: 40px;
 }
 
+h3{ 
+    text-align: center;
+}
+
 .add {
     background-color: lightgray;
     color: black;

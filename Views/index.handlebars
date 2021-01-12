@@ -14,7 +14,7 @@
 
 <div class="panel panel-default col-md-5" style="padding: 0px">
     <div class="panel-heading">
-        <h3>List of Burger to Eat</h3>
+        <h3>Burger to Eat</h3>
     </div>
 
     <div class="panel-body">
@@ -22,10 +22,9 @@
             {{#each burger}}
             {{#unless this.devoured}}
             <li>
-                {{this.id}} <span>.</span> {{this.burger_name}}
-                <form method="POST" action="/{{this.id}}?_method=PUT">
-                <input type="hidden" name="Devour" value="true">
-                <button type="submit" class="btn btn-secondary btn-sm">Devour!!</button>
+                <form action="/{{this.id}}?_method=PUT" method="POST" class="update-button">
+                    {{this.burger_name}}
+                <button type="submit" class="btn btn-secondary btn-sm">DEVOUR!</button>
                 </form>
             </li>
             {{/unless}}
@@ -38,7 +37,7 @@
 
 <div class="panel panel-default col-md-5" style="padding: 0px">
     <div class="panel-heading">
-      <h3>Devoured Burgers!</h3>
+      <h3>Devoured!</h3>
     </div>
     <div class="panel-body">
       <ul>
