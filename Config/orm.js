@@ -1,4 +1,4 @@
-const connection = require("../config/connection.js");
+const connection = require("../Config/connection.js");
 
 // Helper function for SQL syntax.
 
@@ -37,7 +37,7 @@ return arr.toString();
 // Object for all our SQL statement functions.
 const orm = {
     all(tableInput, cb) {
-      const queryString = `SELECT * FROM ${tableInput};`;
+      let queryString = `SELECT * FROM ${tableInput};`;
       connection.query(queryString, (err, result) => {
         if (err) {
           throw err;
@@ -47,7 +47,7 @@ const orm = {
     },
 
     create(table, cols, vals, cb) {
-        const queryString = `INSERT INTO ${table}`;
+        let queryString = `INSERT INTO ${table}`;
     
         queryString += ' (';
         queryString += cols.toString();
