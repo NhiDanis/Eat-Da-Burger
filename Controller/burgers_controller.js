@@ -1,7 +1,7 @@
 // Import models connection.
 const express = require("express");
 const router = express.Router();
-const burger = require("../models/burger.js");
+const burger = require("../Models/burger.js");
 
 // Create all our routes 
 router.get("/", (req, res) => {
